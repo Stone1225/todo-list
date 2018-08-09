@@ -20,11 +20,12 @@ class TodoItem extends React.Component {
 }
 // props数据类型检查
 TodoItem.propTypes ={
+    // 快捷键：ptnr和ptsr
     index: PropTypes.number.isRequired,
     val: PropTypes.string,
 };
 
-// 如果制定props未传入, 使用默认值
+// 如果指定的props未传入, 则使用默认值
 TodoItem.defaultProps ={
     val: "我是默认描述"
 };

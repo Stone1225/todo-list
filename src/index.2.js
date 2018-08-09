@@ -17,6 +17,9 @@ class TodoComponent extends React.Component {
 
         // 把[]作为默认值
         this.state = {
+            //一下三行代码作用一样
+            // todos: JSON.parse(data) === null ? [] : JSON.parse(data)
+            // todos: JSON.parse(data)  ?  JSON.parse(data) : []
             todos: JSON.parse(data) || []
         };
 
@@ -69,11 +72,13 @@ class TodoComponent extends React.Component {
             <div className='todo-list'>
                 <Link to="/about">关于About</Link>
 
+                {/*前面为true才执行后面，否则不会执行后面*/}
                 { this.props.showTitle && <h2>GTD记事本</h2>}
 
                 {subTitle}
 
                 {
+                    //这里也是三元运算符
                     length === 0 ?
                         (<p>恭喜你, 任务全部完成!</p>) :
                         (<ul>{list}</ul>)
@@ -90,6 +95,7 @@ class App extends React.Component{
         return(
             <Router>
                 <div>
+                    {/*route里面一般只能接受组件，组件中要想传入参数，需使用箭头函数*/}
                     <Route path="/" exact={true} render={() => <TodoComponent showTitle={true}/>}/>
                     <Route path="/about" component={About}/>
                 </div>

@@ -9,6 +9,12 @@ import {
     Layout
 } from 'antd';
 
+/**
+ * 组件的组合
+ * @type {React.StatelessComponent<GroupProps>}
+ */
+
+
 const InputGroup = Input.Group;
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -28,6 +34,8 @@ class AboutPanel extends React.Component {
 
 }
 
+
+// AboutPanelSpecial组件里面包含组件AboutPanel，AboutPanelSpecial是AboutPanel的一个特殊实例
 class AboutPanelSpecial extends React.Component{
 
     render() {
